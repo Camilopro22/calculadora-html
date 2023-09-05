@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function ingresarnumero(n) {
+            var num = document.getElementById('caja_de_texto');
+            if (n != '.') {
+                num.value = num.value + n;
+            } else {
+                if (num.value == '') {
+                    num.value = numero.value + '0.';
+                } else
+                    if (num.value.indexOf('.') == -1) {
+                        num.value = num.value + n;
+                    }
+            }
+
+        }
+
+        function limpiar() {
+            document.getElementById('caja_de_texto').value = null;
+        }
+
+        function resultado() {
+            var input = document.getElementById('caja_de_texto');
+            var resultado = eval(input.value);
+            input.value = resultado;
+        }
+
+
+        function calcularraiz() {
+            var input = document.getElementById("caja_de_texto");
+            var currentValue = parseFloat(input.value);
+
+            if (!isNaN(currentValue) && currentValue >= 0) {
+                var squareRoot = Math.sqrt(currentValue);
+                input.value = squareRoot;
+            } else {
+                input.value = "Error";
+            }
+        }
+
+        function raizcubica(){
+            var input2 = document.getElementById("caja_de_texto");
+            var resultado = parseFloat(input2.value);
+
+            if(!isNaN(resultado)){
+                var raizCubica = Math.cbrt(resultado);
+                input2.value = raizCubica;
+            }
+           
+
+        }
+
+        function funcionracional(){
+            var entry = (document.getElementById("caja_de_texto"));
+            var floatinput = parseFloat(entry.value);
+            var resultado = 1/floatinput;
+            entry.value = resultado;            
+
+            
+        }
+
+        function pi(){
+            var entry = document.getElementById("caja_de_texto");
+            var pi = Math.PI;
+            entry.value = pi; 
+        }
+
+        function porcentaje(){
+            var entry = document.getElementById("caja_de_texto");
+            var valor1 = parseFloat(entry.value);
+            entry.value = `${valor1}%`;
+        }
+
+        function coseno(){
+            var entry = document.getElementById("caja_de_texto");
+            var resultado = Math.cos(parseFloat(entry.value));
+            entry.value = resultado;
+        }
+
+        function punto(){
+            if (n != '.'){
+                numero.value = numero.value + n;
+            }else{
+                if(numero.value == ''){
+                    numero.value = numero.value + '0.';
+                }else
+                if(numero.value.indexOf('.') == -1){
+                    numero.value = numero.value + n;
+                }
+            }
+        }
+
+
+
+
+    </script>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+    }
+
+    center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form {
+        background-color: #faed76;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: 95%;
+        padding: 10px;
+        font-size: 24px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+        text-align: right;
+    }
+
+    input[type="button"] {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+        border: none;
+        border-radius: 50%;
+        background-color: #1b92c9;
+        color: rgb(24, 2, 2);
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="button"]:hover {
+        background-color: #f2f56a;
+    }
+    input[class="igual"]{
+        width: 143px;
+    }
+        
+</style>
+
+
+<title>Calculadora</title>
+</head>
+
+<body>
+    <center>
+        <form name="Calculadora">
+            <table border="8">
+                <tr>
+                    <td colspan="5">
+                        <input readonly type="text" name="txtbotones" value=""  id="caja_de_texto">
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td><input type="button" value="&pi;" onclick="pi()"></td>
+                    <td><input type="button" value="&#37;" onclick="porcentaje()"></td>
+                    <td><input type="button" value="COS" onclick="coseno()"></td>
+
+                    <tr>
+
+                    </tr>
+                    <td><input type="button" value="MC" onclick="memoriclear()"></td>
+                    <td><input type="button" value="M+" onclick="memoriaSumar()"></td>
+                    <td><input type="button" value="M-" onclick="memoriaRestar()"></td>
+                    <td><input type="button" value="&#8731;" onclick="raizcubica()"></td>
+                    <td><input type="button" value="1/X" onclick="funcionracional()"></td>
+                    <tr>
+
+                    </tr>
+                    <td><input type="button" value="1" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="2" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="3" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="+" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="-" onclick="ingresarnumero(this.value)"></td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="button" value="4" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="5" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="6" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="*" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="/" onclick="ingresarnumero(this.value)"></td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="button" value="7" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="8" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="9" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="**" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="&radic;" onclick="calcularraiz()"></td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="button" value="0" onclick="ingresarnumero(this.value)"></td>
+                    <td><input type="button" value="." onclick="punto()"></td>
+                    <td><input type="button" value="AC" onclick="limpiar()"></td>
+                    <td colspan="2"><input type="button" value="=" class="igual" onclick="resultado()"></td>
+                <tr>
+
+
+                    
+
+
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
